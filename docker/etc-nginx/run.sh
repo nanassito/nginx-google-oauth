@@ -29,10 +29,6 @@ export NGO_USER=${NGO_USER:-unknown}
 
 # Help people spot problems
 if [ "${DEBUG}" ]; then
-  echo "## /etc/nginx/sites-available/default ##"
-  cat -n /etc/nginx/sites-available/default
-  echo "## /etc/nginx/snippets/demo-locations.conf ##"
-  cat -n /etc/nginx/snippets/demo-locations.conf
   echo "## environment ##"
   env | grep '^\(NGO_.*\|PORT\)=' | sort -n | cat -n
 fi
