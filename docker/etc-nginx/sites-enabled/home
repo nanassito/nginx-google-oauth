@@ -1,5 +1,3 @@
-lua_package_path '/etc/nginx/lua/?.lua;';
-
 server {
     listen       443 ssl;
     listen  [::]:443 ssl;
