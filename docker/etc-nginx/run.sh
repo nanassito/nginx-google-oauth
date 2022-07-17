@@ -27,11 +27,6 @@ export NGO_EMAIL_AS_USER=${NGO_EMAIL_AS_USER:-true}
 export NGO_EXTRA_VALIDITY=${NGO_EXTRA_VALIDITY:-0}
 export NGO_USER=${NGO_USER:-unknown}
 
-# Overwrite user supplied locations
-if [ "${LOCATIONS}" ]; then
-  echo "${LOCATIONS}" > /etc/nginx/snippets/demo-locations.conf
-fi
-
 # Help people spot problems
 if [ "${DEBUG}" ]; then
   echo "## /etc/nginx/sites-available/default ##"
@@ -39,7 +34,7 @@ if [ "${DEBUG}" ]; then
   echo "## /etc/nginx/snippets/demo-locations.conf ##"
   cat -n /etc/nginx/snippets/demo-locations.conf
   echo "## environment ##"
-  env | grep '^\(NGO_.*\|LOCATIONS\|PORT\)=' | sort -n | cat -n
+  env | grep '^\(NGO_.*\|PORT\)=' | sort -n | cat -n
 fi
 
 exec nginx -g "daemon off;" -c /etc/nginx/nginx.conf
